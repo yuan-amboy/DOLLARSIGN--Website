@@ -1,0 +1,285 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('images/background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed; /* Stays in place while scrolling */
+    top: 20px; /* Distance from the top */
+    left: 50%; /* Center the navbar */
+    transform: translateX(-50%); /* Ensure perfect centering */
+    width: 90%; /* Adjust width */
+    height: 30px; /* Adjust to desired thinness */
+    background-color: rgb(216, 216, 216);
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners for a smoother design */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Ensure it stays on top */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    height: 30px;
+    cursor: pointer;
+}
+
+.nav-icons img {    
+    width: 24px; 
+    height: auto;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.nav-icons img:hover {
+    opacity: 0.7; 
+}    
+
+/* Menu Button */
+#menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* Sliding Menu (Hidden by Default) */
+.menu-section {
+    position: fixed;
+    top: 100px; /* Align with navbar */
+    left: -250px; /* Start hidden off-screen */
+    width: 200px; /* Fixed width */
+    height: 300px;
+    background-color: rgba(216, 216, 216, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0 5px 5px 0; /* No border-radius on the left side */
+    overflow: hidden;
+    transition: left 0.3s ease-in-out; /* Smooth sliding effect */
+    z-index: 900;
+    display: flex; 
+    flex-direction: column; /* Keep it stacked vertically */
+    align-items: left; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+}
+
+/* Active state (when menu is open) */
+.menu-section.active {
+    left: 0; /* Reaches the left edge of the screen */
+}
+
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-section ul li {
+    padding: 10px;
+    text-align: left;
+    margin: 5px;
+}
+
+.menu-section ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    display: block;
+    transition: background 0.1s;
+    padding: 5px;
+}
+
+.menu-section ul li a:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Menu Button */
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 20px; 
+}
+
+.menu-button img {
+    width: 25px;
+    height: auto;
+}
+
+.search-icon {
+    margin-right: 20px; 
+    cursor: pointer;
+}
+
+.cart-icon {
+    margin-right: 20px;
+    cursor: pointer; 
+}
+
+.banner {
+    position: center;
+    width: 95vw; /* Full width */
+    height: 100vh; /* Full height of the viewport */
+    margin-bottom: 50px;
+}
+
+.banner img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the image */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures it fills the container without distortion */
+}
+
+.new-arrival-label {
+    position: absolute;
+    top: -10px; /* Adjust as needed */
+    left: 30px; /* Adjust as needed */
+    width: 200px; /* Resize the label */
+    transform: rotate(-15deg); /* Tilts the image */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+/* Clothing Section */
+.clothes-section {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px; 
+    margin: 0 auto;
+    align-items: center;
+    padding-top: 50px;
+    position: relative;
+}
+
+/* Clothing Items */
+.clothing-item {
+    position: relative; 
+    text-align: center;
+    width: calc(25% - 20px); 
+    min-width: 150px;
+    overflow: hidden; 
+}
+
+/* Front Image */
+.clothing-item img.front {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+}
+
+/* Back Image */
+.clothing-item img.back {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; 
+    transition: opacity -1s ease-in-out;
+}
+
+/* Show Back Image on Hover */
+.clothing-item:hover img.front {
+    opacity: 0;
+}
+
+.clothing-item:hover img.back {
+    opacity: 1; 
+}
+
+/* Image Styling */
+.clothing-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.name {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.price {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .clothing-item {
+        width: calc(33.33% - 20px); 
+    }
+}
+
+@media (max-width: 768px) {
+    .clothing-item {
+        width: calc(50% - 20px); 
+    }
+}
+
+@media (max-width: 480px) {
+    .clothing-item {
+        width: 100%; 
+    }
+}
+
+/* About Us */
+.about-us-content {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 100px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.custom-title {
+    font-size: 150px;
+    font-family: 'Nutty Noises', sans-serif;
+    margin-top: 150px;
+}
+
+@font-face {
+    font-family: 'Nutty Noises';
+    src: url('fonts/nutty-noises-font.woff2') format('woff2'),
+         url('fonts/nutty-noises-font.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Apply the font to your title */
+.custom-title {
+    font-family: 'Nutty Noises', sans-serif;
+}
